@@ -33,7 +33,10 @@
             </v-toolbar>
           </template>
           <template #item.image="{ item }">
-            <template-image :template-id="item.id" />
+            <template-image
+              :template-id="item.id"
+              :template-filename="item.template_filename"
+            />
           </template>
           <template #item.actions="{ item }">
             <div class="d-inline-block text-no-wrap">
@@ -72,12 +75,12 @@
 <script setup lang="ts">
 import DocumentTemplateForm from '@/components/document-template/DocumentTemplateForm.vue';
 import { type ComponentInstance, onMounted, ref } from 'vue';
-import type { DocumentTemplateOut } from '@/api/resources/DocumentTemplate.ts';
 import { useApi } from '@/api';
 import { useReportingStore } from '@/stores/Reporting.ts';
 import TemplateImage from '@/components/document-template/TemplateImage.vue';
 import TemplateUploadForm from '@/components/document-template/TemplateUploadForm.vue';
 import type { VDataTable } from 'vuetify/components';
+import type { DocumentTemplateOut } from '@/api/resources/common';
 
 const headers = [
   { title: 'Name', align: 'start', sortable: true, key: 'name' },

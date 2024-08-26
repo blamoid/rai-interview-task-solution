@@ -12,6 +12,11 @@
         to="/document-template/"
         prepend-icon="mdi-card-account-details-outline"
       />
+      <v-list-item
+        title="Template matching jobs"
+        to="/template-matching-job/"
+        prepend-icon="mdi-compare"
+      />
     </v-list>
   </v-navigation-drawer>
 </template>

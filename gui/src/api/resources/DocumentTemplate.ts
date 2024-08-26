@@ -1,17 +1,6 @@
 import { pick } from 'lodash';
 import type { ApiClient } from '@/api';
-
-interface DocumentTemplateBase {
-  name: string;
-  uploaded_at: string;
-  template_filename: string;
-  template_file_type: string;
-}
-
-export interface DocumentTemplateOut extends DocumentTemplateBase {
-  id: number;
-  created_at: string;
-}
+import type { DocumentTemplateBase, DocumentTemplateOut } from './common';
 
 export interface DocumentTemplateJSONIn extends DocumentTemplateBase {}
 

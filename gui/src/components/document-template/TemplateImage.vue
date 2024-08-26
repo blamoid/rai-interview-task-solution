@@ -13,11 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useApi } from '@/api';
 
 const templateProps = defineProps<{
   templateId: number;
+  templateFilename: string;
 }>();
 
 const imageUrl = ref<string | undefined>(undefined);
@@ -39,6 +40,18 @@ async function loadImageBytes() {
     console.error(e);
   }
 }
+
+watch(
+  () => templateProps.templateFilename,
+  (newFilename) => {
+    if (newFilename) {
+      loadImageBytes();
+    }
+  },
+  {
+    immediate: true,
+  },
+);
 </script>
 
 <style scoped></style>
